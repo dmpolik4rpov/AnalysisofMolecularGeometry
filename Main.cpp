@@ -12,20 +12,20 @@ int main()
 	setlocale(LC_ALL, "Russian");
 
 	Molecule mol("geom.dat", 0);
-	cout << "Число атомов: " << mol.natom << endl;
-	cout << "Координаты атомов в прямоугольной системе координат:\n";
+	cout << "Number of atoms: " << mol.natom << endl;
+	cout << "Atom coordinates in Cartesian coord system:\n";
 	mol.print_geom();
 
 
 
-	cout << "Межатомные расстояния (Ангстремы):\n";
+	cout << "Interatomic distances in Angstrem:\n";
 	for (int i = 0; i < mol.natom; i++)
 			for(int j = 0; j<i; j++)
 				printf("%d %d %8.5f\n", i, j, mol.bond(i, j));
 
 
 
-	cout << "\nУглы связей:\n";
+	cout << "\Bond angle:\n";
 	for (int i = 0; i < mol.natom; i++) {
 		for (int j = 0; j < i; j++) {
 			for (int k = 0; k < j; k++) {
