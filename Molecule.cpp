@@ -30,14 +30,14 @@ Molecule::Molecule(const char* filename, int q)
 {
     charge = q;
 
-    // открыть файл
+    // Readin the file
     std::ifstream is(filename);
     assert(is.good());
 
-    // сосчитали число атомов 
+    // Counting the number of atoms
     is >> natom;
 
-    // выделяем память
+    // New memory
     zvals = new int[natom];
     geom = new double* [natom];
     for (int i = 0; i < natom; i++)
@@ -61,7 +61,7 @@ Molecule::~Molecule()
 double Molecule::bond(int a, int b) {
 
     double dangstr = sqrt((geom[a][0] - geom[b][0]) * (geom[a][0] - geom[b][0]) + (geom[a][1] - geom[b][1]) * (geom[a][1] - geom[b][1]) + (geom[a][2] - geom[b][2]) * (geom[a][2] - geom[b][2]));
-        dangstr = dangstr * 1.88973;///перевод боров в ангстремы
+        dangstr = dangstr * 1.88973;///now in angstrem
         return dangstr;
 }
 double Molecule::unit(int cart, int a, int b)
