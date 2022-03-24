@@ -1,6 +1,9 @@
-#pragma once
 #include <string>
-using namespace std;
+#include <cstdio>
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <cmath>
 
 
 
@@ -8,11 +11,11 @@ using namespace std;
 class Molecule
 {
 public:
-	int natom;///число атомов
-	int charge;///заряд
-	int* zvals;///число протонов 
+	int natom;///number of atoms
+	int charge;
+	int* zvals;///number of protons 
 	double** geom;
-	string point_group;
+	std::string point_group;
 
 	void print_geom();
 	void rotate(double phi);
